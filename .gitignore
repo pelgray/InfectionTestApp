@@ -1,0 +1,14 @@
+#IDE
+.idea/
+*.iml
+.gradle/
+gradle/
+*/gradlew
+
+#Java
+build/
+target/
+logs/
+
+#Project
+**/logback.xml
