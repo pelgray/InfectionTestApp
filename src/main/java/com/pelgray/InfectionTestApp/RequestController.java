@@ -29,7 +29,6 @@ public class RequestController {
     @GetMapping("/api/viruses/get")
     public VirusEntity getVirus(@RequestParam String virusName) {
         LOG.info("Getting a virus by name \"{}\"", virusName);
-
         return virusRepository.findByName(virusName);
     }
 }

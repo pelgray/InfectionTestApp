@@ -49,49 +49,51 @@
         button {
             margin-left: 0.5em;
         }
+
     </style>
 </head>
 
 <body>
-    <div id="app">
-        <fieldset>
-            <ul> 
-                <li>
-                    <label for="v_name">Наименование</label>
-                    <input id="v_name" name="item.name" v-model="input.name">
-                </li>
-                <li>
-                    <label for="v_transmission">Вероятность передачи</label>
-                    <input id="v_transmission" name="item.transmission" v-model="input.transmission">
-                </li>
-                <li>
-                    <label for="v_lifeExpAfterInfection">Средний срок заражения, дни</label>
-                    <input id="v_lifeExpAfterInfection" name="item.lifeExpAfterInfection" v-model="input.lifeExpAfterInfection">
-                </li>
-                <li>
-                    <label for="v_mortality">Смертность, %</label>
-                    <input id="v_mortality" name="item.mortality" v-model="input.mortality">
-                </li>
-                <li>
-                    <label for="v_reInfection">Вероятность повторного заражения, %</label>
-                    <input id="v_reInfection" name="item.reInfection" v-model="input.reInfection">
-                </li>
-                <li>
-                    <label for="v_type">Тип</label>
-                    <select id="v_type" v-model="input.type">
-                        <option v-bind:value="option.value" v-for="option in virusType">
-                            {{ option.text }}
-                        </option>
-                    </select>
-                </li>
-                <li class="button">
-                    <button v-on:click="submitVirus"> {{buttonLabel}} </button>
-                </li>
-            </ul>
-        </fieldset>
-    </div>
+<div id="app">
+    <fieldset>
+        <ul>
+            <li>
+                <label for="v_name">Наименование</label>
+                <input id="v_name" name="item.name" v-model="input.name">
+            </li>
+            <li>
+                <label for="v_transmission">Вероятность передачи</label>
+                <input id="v_transmission" name="item.transmission" v-model="input.transmission">
+            </li>
+            <li>
+                <label for="v_lifeExpAfterInfection">Средний срок заражения, дни</label>
+                <input id="v_lifeExpAfterInfection" name="item.lifeExpAfterInfection"
+                       v-model="input.lifeExpAfterInfection">
+            </li>
+            <li>
+                <label for="v_mortality">Смертность, %</label>
+                <input id="v_mortality" name="item.mortality" v-model="input.mortality">
+            </li>
+            <li>
+                <label for="v_reInfection">Вероятность повторного заражения, %</label>
+                <input id="v_reInfection" name="item.reInfection" v-model="input.reInfection">
+            </li>
+            <li>
+                <label for="v_type">Тип</label>
+                <select id="v_type" v-model="input.type">
+                    <option v-bind:value="option.value" v-for="option in virusType">
+                        {{ option.text }}
+                    </option>
+                </select>
+            </li>
+            <li class="button">
+                <button v-on:click="submitVirus"> {{buttonLabel}}</button>
+            </li>
+        </ul>
+    </fieldset>
+</div>
 
-    <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 
 </html>

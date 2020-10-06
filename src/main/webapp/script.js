@@ -31,7 +31,7 @@ var app = new Vue({
                 fetch("http://localhost:8787/api/viruses/add", requestOptions)
                     .then(response => console.log(response.text()))
                     .then(result => console.log(result))
-                    .catch(error => console.log('error', error));
+                    .catch(error => alert(error));
 
                 this.input = {
                     name: '',
