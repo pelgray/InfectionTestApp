@@ -91,7 +91,7 @@ public class VirusEntity implements Serializable {
                 '}';
     }
 
-    enum VirusType {
+    public enum VirusType {
         RNA,
         DNA,
         RETROVIRUS

@@ -1,6 +1,7 @@
-package com.pelgray.InfectionTestApp;
+package com.pelgray.InfectionTestApp.controller;
 
 import com.pelgray.InfectionTestApp.domain.VirusEntity;
+import com.pelgray.InfectionTestApp.exceptions.VirusNotFoundException;
 import com.pelgray.InfectionTestApp.repository.VirusRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,21 +15,21 @@ import org.springframework.web.bind.annotation.RestController;
 
 @CrossOrigin
 @RestController
-public class RequestController {
-    private static final Logger LOG = LoggerFactory.getLogger(RequestController.class);
-
+public class VirusController {
+    private static final Logger LOG = LoggerFactory.getLogger(VirusController.class);
     @Autowired
     private VirusRepository virusRepository;
 
     @PostMapping("/api/viruses/add")
     public void addVirus(@RequestBody VirusEntity virus) {
-        LOG.info("Adding a virus \"{}\"", virus.toString());
+        LOG.debug("Adding a virus \"{}\"", virus.toString());
         virusRepository.save(virus);
     }
 
     @GetMapping("/api/viruses/get")
     public VirusEntity getVirus(@RequestParam String virusName) {
-        LOG.info("Getting a virus by name \"{}\"", virusName);
-        return virusRepository.findByName(virusName);
+        LOG.debug("Getting a virus by name \"{}\"", virusName);
+        return virusRepository.findByName(virusName)
+                .orElseThrow(() -> new VirusNotFoundException(virusName));
     }
 }
